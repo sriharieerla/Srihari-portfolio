@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Srihari - Developer Portfolio</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="#home">Srihari Manikanta Eerla</a>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-controls">
+          <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+          </button>
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-image">
+            <img src="Profile.png" alt="Srihari Eerla" class="profile-img" />
+          </div>
+          <div class="hero-text">
+            <h1>
+              Hi, I'm <span class="highlight">Srihari Manikanta Eerla</span>
+            </h1>
+            <div class="typing-container">
+              <span id="typing-text"></span>
+              <span class="cursor">|</span>
+            </div>
+            <p class="hero-description">
+              Computer Science Engineering graduate specializing in AI & ML,
+              passionate about building innovative solutions and solving complex
+              problems.
+            </p>
+            <div class="hero-buttons">
+              <a href="#contact" class="btn btn-primary">Get In Touch</a>
+              <a href="#projects" class="btn btn-secondary">View Projects</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              I'm Srihari Manikanta Eerla, a B.Tech Computer Science Engineering
+              graduate specializing in Artificial Intelligence and Machine
+              Learning. I’m driven by a passion for innovation and a constant
+              desire to learn and improve.
+            </p>
+            <p>
+              My ultimate goal is to join as a Software Development Engineer,
+              where I can contribute to building products that impact billions
+              of users worldwide. I'm constantly learning and working on
+              challenging projects that enhance my problem-solving abilities and
+              technical expertise.
+            </p>
+            <p>
+              Beyond coding, I enjoy exploring the latest in AI/ML, contributing
+              to open-source, and solving algorithmic challenges to sharpen my
+              DSA skills.
+            </p>
+          </div>
+          <div class="about-stats">
+            <div class="stat">
+              <h3>8+</h3>
+              <p>Projects Completed</p>
+            </div>
+            <div class="stat">
+              <h3>3+</h3>
+              <p>Years Learning</p>
+            </div>
+            <div class="stat">
+              <h3>100%</h3>
+              <p>Dedication</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <h2 class="section-title">Skills & Technologies</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fab fa-java"></i>
+            </div>
+            <h3>Java</h3>
+            <p>
+              Object-oriented programming, Spring framework, enterprise
+              applications
+            </p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fab fa-python"></i>
+            </div>
+            <h3>Python</h3>
+            <p>Data analysis, machine learning, web development with Flask</p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <h3>SQL & MySQL</h3>
+            <p>Database design, query optimization, data management</p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fab fa-python"></i>
+            </div>
+            <h3>Flask</h3>
+            <p>Web development, RESTful APIs, backend services</p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fab fa-java"></i>
+            </div>
+            <h3>JavaFX</h3>
+            <p>Desktop application development, GUI design</p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3>Machine Learning</h3>
+            <p>
+              Predictive modeling, data preprocessing, algorithm implementation
+            </p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3>Data Structures</h3>
+            <p>Algorithm design, problem-solving, competitive programming</p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Algorithms</h3>
+            <p>Time complexity optimization, algorithmic thinking</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-image">
+              <img
+                src="https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Accident Prediction System"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    href="https://github.com/sriharieerla/Accident-Prediction-Model"
+                    class="project-link"
+                    ><i class="fab fa-github"></i
+                  ></a>
+                  <a href="#" class="project-link"
+                    ><i class="fas fa-external-link-alt"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>Accident Prediction System</h3>
+              <p>
+                A machine learning–powered web app using SVM & KNN classifiers
+                to predict accident risk with ~85% accuracy, deployed with a
+                Flask backend and MySQL integration.
+              </p>
+              <div class="project-tech">
+                <span>Python</span>
+                <span>Flask</span>
+                <span>MySQL</span>
+                <span>ML</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <img
+                src="online-reservation-system.png"
+                alt="Online Reservation System"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    href="https://github.com/sriharieerla/Online-Ticket-Reservation-System"
+                    class="project-link"
+                    ><i class="fab fa-github"></i
+                  ></a>
+                  <a href="#" class="project-link"
+                    ><i class="fas fa-external-link-alt"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>Online Reservation System</h3>
+              <p>
+                A secure full-stack web app for user registration, booking, and
+                cancellation with SHA-256 password encryption and REST APIs.
+                Supports safe bookings for concurrent users.
+              </p>
+              <div class="project-tech">
+                <span>JavaFX</span>
+                <span>MySQL</span>
+                <span>Java</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <img
+                src="https://images.pexels.com/photos/264507/pexels-photo-264507.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Pineapple Store Frontend"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    href="https://github.com/sriharieerla/pineapple-store-frontend"
+                    class="project-link"
+                    ><i class="fab fa-github"></i
+                  ></a>
+                  <a
+                    href="https://sriharieerla.github.io/Pineapple-store-frontend/"
+                    class="project-link"
+                    ><i class="fas fa-external-link-alt"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3>Pineapple Store Frontend</h3>
+              <p>
+                Responsive e-commerce web application HTML, CSS, and
+                JavaScript.Includes product catalog, shopping . cart, and
+                interactive UI with dynamic updates.
+              </p>
+              <div class="project-tech">
+                <span>JavaScript</span>
+                <span>HTML/CSS</span>
+                <span>Local Storage</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section class="resume-section">
+      <div class="container">
+        <div class="resume-content">
+          <h2>Ready to Work Together?</h2>
+          <p>
+            Check out my resume to know more about my background and what I
+            bring to the table.
+          </p>
+          <a href="#" class="btn btn-primary resume-btn" id="resumeBtn">
+            <i class="fas fa-download"></i>
+            Download Resume
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <p>
+              I'm always interested in new opportunities and exciting projects.
+              Let's discuss how we can work together!
+            </p>
+            <div class="contact-links">
+              <a
+                href="mailto:eerlasriharimanikanta@gmail.com"
+                class="contact-link"
+              >
+                <i class="fas fa-envelope"></i>
+                <span>eerlasriharimanikanta@gmail.com</span>
+              </a>
+              <a
+                href="https://github.com/sriharieerla"
+                class="contact-link"
+                target="_blank"
+              >
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/srihari-manikanta-eerla-520b49256/"
+                class="contact-link"
+                target="_blank"
+              >
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 Srihari Manikanta Eerla. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
