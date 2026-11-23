@@ -1833,3 +1833,114 @@ body.dark-mode .input-group textarea {
     flex-direction: column;
   }
 }
+
+
+/* =========================================
+   CERTIFICATIONS GALLERY
+========================================= */
+
+.certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 20px;
+}
+
+.certificate-card {
+    background: var(--card-bg, #ffffff);
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certificate-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.certificate-image-link {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background: #f4f4f4;
+}
+
+.certificate-image {
+    display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+.certificate-card:hover .certificate-image {
+    transform: scale(1.04);
+}
+
+.certificate-view {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: white;
+    background: rgba(0, 0, 0, 0.58);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-weight: 600;
+}
+
+.certificate-card:hover .certificate-view {
+    opacity: 1;
+}
+
+.certificate-details {
+    padding: 16px;
+}
+
+.certificate-category {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    background: rgba(59, 130, 246, 0.12);
+    color: #3b82f6;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.certificate-details h4 {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.certificate-details p {
+    font-size: 13px;
+    opacity: 0.8;
+    margin-bottom: 8px;
+}
+
+.certificate-date {
+    font-size: 12px;
+    opacity: 0.65;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 768px) {
+    .certificate-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .certificate-image {
+        height: 210px;
+    }
+
+    .certificate-view {
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.25);
+    }
+}
