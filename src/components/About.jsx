@@ -1,58 +1,25 @@
-import React from 'react';
-
-const About = () => {
-    return (
-        <section id="about" className="about">
-            <div className="container">
-                <h2 className="section-title reveal reveal-up">Identify</h2>
-
-                <div className="bio-container reveal">
-                    {/* Left: The Scanner Card */}
-                    <div className="bio-card">
-                        <div className="scan-line"></div>
-                        <div className="bio-header">
-                            <span className="bio-id">ID: S-EERLA-2025</span>
-                            <span className="bio-status">STATUS: ONLINE</span>
-                        </div>
-
-                        <p className="bio-text">
-                            <span className="highlight">Engineered for Impact.</span> I am a Computer Science strategist specializing in
-                            <strong> Artificial Intelligence</strong> and <strong>High-Scale Systems</strong>.
-                            My code doesn't just run; it performs. I build digital architectures that bridge the gap between complex
-                            algorithms and human intuition.
-                        </p>
-
-                        <div className="bio-stats">
-                            <div className="stat-box">
-                                <h3 className="counter" data-target="8">8+</h3>
-                                <p>Deployed Systems</p>
-                            </div>
-                            <div className="stat-box">
-                                <h3 className="counter" data-target="3">3+</h3>
-                                <p>Years Experience</p>
-                            </div>
-                            <div className="stat-box">
-                                <h3>100%</h3>
-                                <p>Commitment</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Right: Code Block */}
-                    <div className="bio-visual">
-                        <div className="code-block">
-                            <div className="code-line"><span className="c-purple">class</span> <span className="c-yellow">Engineer</span> {'{'}</div>
-                            <div className="code-line indent"> <span className="c-purple">constructor</span>() {'{'}</div>
-                            <div className="code-line double-indent"> this.passion = <span className="c-green">"Innovation"</span>;</div>
-                            <div className="code-line double-indent"> this.stack = [<span className="c-green">"AI"</span>, <span className="c-green">"Web"</span>];</div>
-                            <div className="code-line indent"> {'}'}</div>
-                            <div className="code-line">{'}'}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-};
-
-export default About;
+export default function About() {
+  return (
+    <section id="about" className="section" aria-labelledby="about-h">
+      <div className="wrap two-col">
+        <h2 id="about-h">About</h2>
+        <div className="prose">
+          <p>
+            I hold a B.Tech in Computer Science and Engineering (AI &amp; ML) from Rise Krishna Sai Prakasam Groups
+            of Institutions, graduating in May 2025 with a GPA of 8.1/10. I&apos;m an entry-level engineer starting from a
+            software engineering foundation: Java, object-oriented programming, data structures and algorithms, and SQL.
+          </p>
+          <p>
+            On the backend I work with Spring Boot, Hibernate/JPA and MySQL, with hands-on exposure to authentication,
+            validation, debugging and API testing. On the AI side I build Python applications with LLMs,
+            retrieval-augmented generation and multi-agent workflows, including a GEN-AI internship at Data Valley IT Solutions.
+          </p>
+          <p>
+            I learn by building projects end to end, and I&apos;ve guided students through Java, DSA, SQL and backend
+            development in technical sessions. I care about clean, reliable code and about solving practical problems.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,93 +1,55 @@
-import React, { useState } from 'react';
+import { useState } from "react";
+import { contact } from "../data/site";
+import { MailIcon, PhoneIcon, GitHubIcon, LinkedInIcon } from "./Icons";
 
-const Contact = () => {
-    const [status, setStatus] = useState('idle'); // idle, sending, sent
+export default function Contact() {
+  const [status, setStatus] = useState({ state: "idle", msg: "" });
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setStatus('sending');
+  async function onSubmit(e) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const d = Object.fromEntries(new FormData(form));
+    if (contact.formEndpoint) {
+      setStatus({ state: "sending", msg: "Sending…" });
+      try {
+        const res = await fetch(contact.formEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(d) });
+        if (!res.ok) throw new Error();
+        form.reset();
+        setStatus({ state: "ok", msg: "Message sent." });
+      } catch {
+        setStatus({ state: "error", msg: `Message not sent. Email me directly at ${contact.email}.` });
+      }
+      return;
+    }
+    const body = `${d.message}\n\nFrom: ${d.name} (${d.email})`;
+    window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(`Portfolio message from ${d.name}`)}&body=${encodeURIComponent(body)}`;
+    setStatus({ state: "ok", msg: "Your email app should open with the message filled in. Press send there to deliver it." });
+  }
 
-        // Simulate sending
-        setTimeout(() => {
-            setStatus('sent');
-            // Reset after 3 seconds
-            setTimeout(() => {
-                setStatus('idle');
-                e.target.reset();
-            }, 3000);
-        }, 1500);
-    };
-
-    return (
-        <section id="contact" className="contact">
-            <div className="container">
-                <h2 className="section-title reveal reveal-up">Let's Connect</h2>
-
-                <div className="contact-portal reveal">
-                    {/* Left: Social Hub */}
-                    <div className="contact-hub">
-                        <h3>Start a Conversation</h3>
-                        <p>I'm available for freelance work and full-time opportunities. Send me a message and let's build something extraordinary.</p>
-
-                        <div className="social-grid">
-                            <a href="mailto:eerlasriharimanikanta@gmail.com" className="social-orb email" aria-label="Email Me">
-                                <div className="orb-icon"><i className="fas fa-envelope"></i></div>
-                                <span>Email</span>
-                            </a>
-                            <a href="https://github.com/sriharieerla" target="_blank" rel="noopener noreferrer" className="social-orb github" aria-label="GitHub">
-                                <div className="orb-icon"><i className="fab fa-github"></i></div>
-                                <span>GitHub</span>
-                            </a>
-                            <a href="https://www.linkedin.com/in/srihari-manikanta-eerla-520b49256/" target="_blank" rel="noopener noreferrer" className="social-orb linkedin" aria-label="LinkedIn">
-                                <div className="orb-icon"><i className="fab fa-linkedin"></i></div>
-                                <span>LinkedIn</span>
-                            </a>
-                            <a href="tel:+919553255655" className="social-orb phone" aria-label="Call Me">
-                                <div className="orb-icon"><i className="fas fa-phone"></i></div>
-                                <span>Phone</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    {/* Right: Message Terminal */}
-                    <div className="contact-terminal">
-                        <form id="contactForm" onSubmit={handleSubmit}>
-                            <div className="input-group">
-                                <input type="text" id="name" required placeholder=" " />
-                                <label htmlFor="name">Your Name</label>
-                                <div className="glow-bar"></div>
-                            </div>
-
-                            <div className="input-group">
-                                <input type="email" id="email" required placeholder=" " />
-                                <label htmlFor="email">Email Address</label>
-                                <div className="glow-bar"></div>
-                            </div>
-
-                            <div className="input-group">
-                                <textarea id="message" rows="4" required placeholder=" "></textarea>
-                                <label htmlFor="message">Your Message</label>
-                                <div className="glow-bar"></div>
-                            </div>
-
-                            <button
-                                type="submit"
-                                className="btn btn-send"
-                                disabled={status !== 'idle'}
-                                style={{ background: status === 'sent' ? '#10B981' : '' }}
-                            >
-                                {status === 'idle' && (
-                                    <><span>Send Message</span> <i className="fas fa-paper-plane"></i></>
-                                )}
-                                {status === 'sending' && <span>Sending...</span>}
-                                {status === 'sent' && <span>Message Sent!</span>}
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-};
-
-export default Contact;
+  return (
+    <section id="contact" className="section" aria-labelledby="contact-h">
+      <div className="wrap two-col">
+        <div>
+          <h2 id="contact-h">Contact</h2>
+          <p className="muted">Open to entry-level software engineering and AI/ML roles.</p>
+          <ul className="plain contact-list">
+            <li><a href={`mailto:${contact.email}`}><MailIcon /> {contact.email}</a></li>
+            <li><a href={`tel:${contact.phoneHref}`}><PhoneIcon /> {contact.phone}</a></li>
+            <li><a href={contact.github} target="_blank" rel="noopener noreferrer"><GitHubIcon /> GitHub</a></li>
+            <li><a href={contact.linkedin} target="_blank" rel="noopener noreferrer"><LinkedInIcon /> LinkedIn</a></li>
+          </ul>
+          <p className="muted small">{contact.location}</p>
+        </div>
+        <form onSubmit={onSubmit} className="form">
+          <label>Name<input name="name" required autoComplete="name" /></label>
+          <label>Email<input name="email" type="email" required autoComplete="email" /></label>
+          <label>Message<textarea name="message" rows="5" required /></label>
+          <button className="btn primary" type="submit" disabled={status.state === "sending"}>
+            {contact.formEndpoint ? "Send message" : "Compose email"}
+          </button>
+          <p className={`status ${status.state}`} role="status" aria-live="polite">{status.msg}</p>
+        </form>
+      </div>
+    </section>
+  );
+}

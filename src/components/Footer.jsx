@@ -1,13 +1,12 @@
-import React from 'react';
+import { person } from "../data/site";
 
-const Footer = () => {
-    return (
-        <footer className="footer">
-            <div className="container">
-                <p>&copy; 2025 Srihari Manikanta Eerla. All rights reserved.</p>
-            </div>
-        </footer>
-    );
-};
-
-export default Footer;
+export default function Footer() {
+  return (
+    <footer className="footer">
+      <div className="wrap row">
+        <p>© {new Date().getFullYear()} {person.name}</p>
+        <a href="#home">Back to top</a>
+      </div>
+    </footer>
+  );
+}
